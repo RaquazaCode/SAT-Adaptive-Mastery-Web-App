@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3D5A45;
+  --color-primary-light: #4A7C59;
+  --color-accent-green: #B8E0A0;
+  --color-accent-yellow: #F5C842;
+  --color-accent-orange: #F5A962;
+  --color-accent-blue: #C5D8F0;
+  --color-bg-light: #F5F5F0;
+  --color-text-dark: #1A1A1A;
+  --color-text-gray: #666666;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', serif;
+}
+
+.font-serif {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--rotation)); }
+  50% { transform: translateY(-10px) rotate(var(--rotation)); }
+  100% { transform: translateY(0px) rotate(var(--rotation)); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
