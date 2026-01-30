@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 const faqs = [
 {
-  question: 'How long do I have access to the course?',
+  question: 'How does the adaptive practice system work?',
   answer:
-  'You have lifetime access to the course materials once you enroll. You can study at your own pace and revisit lessons whenever you need.'
+  'Our system tracks your performance at the question-type level, identifying which skills need work. Practice drills automatically adjust difficulty and focus on your weak areas based on error patterns and timing behavior.'
 },
 {
-  question: 'Is there a money-back guarantee?',
+  question: 'Are the simulations accurate to the real Digital SAT?',
   answer:
-  "Yes, we offer a 7-day money-back guarantee. If you're not satisfied with the course content, simply contact support for a full refund."
+  'Yes. Our simulations mirror the real Digital SAT format with module-based routing, accurate timing (32 min per R&W module, 35 min per Math module), and scoring estimates based on Item Response Theory.'
 },
 {
-  question: 'Do you offer private tutoring?',
+  question: 'What score improvement can I expect?',
   answer:
-  'Yes, we have packages that include 1-on-1 sessions with our expert tutors. You can also book individual sessions as needed.'
+  'Students using our adaptive system typically see 150-250 point improvements. Results vary based on starting score, study time, and consistency. Our system focuses on skill mastery rather than just practice volume.'
 },
 {
-  question: 'Are the practice tests realistic?',
+  question: 'Do I need to create an account?',
   answer:
-  'Absolutely. Our practice tests are modeled after official SAT exams to give you the most accurate test-day experience possible.'
+  'For MVP, you can start practicing immediately. Your progress is tracked by session. Account creation (for saving progress across devices) will be available in a future update.'
 }];
 
 export function FAQ() {
@@ -32,7 +32,7 @@ export function FAQ() {
             Frequently asked questions
           </h2>
           <p className="text-gray-600">
-            Everything you need to know about our SAT prep courses.
+            Everything you need to know about SAT Adaptive Mastery.
           </p>
         </div>
 

@@ -20,12 +20,10 @@ export function Hero() {
           {/* Left Content */}
           <div className="relative z-10 max-w-2xl">
             <h1 className="text-5xl lg:text-7xl font-bold text-[var(--color-text-dark)] leading-[1.1] mb-6">
-              Study from home with our experts.
+              Master the Digital SAT with Adaptive Practice
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-              Personalized prep that adapts to your learning style. Join
-              thousands of students who improved their scores by 200+ points
-              with our specialized online courses.
+              Our AI-powered system models the real SAT test structure, tracks your skills at the question-type level, and adapts practice to your errors and timing. Join students improving their scores by 200+ points.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">

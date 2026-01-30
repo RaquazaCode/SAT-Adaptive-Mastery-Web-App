@@ -3,21 +3,21 @@ import { Monitor, User, Lightbulb } from 'lucide-react';
 const features = [
 {
   icon: Monitor,
-  title: 'Learn from anywhere',
+  title: 'Adaptive Practice Engine',
   description:
-  'Learning from anywhere has become a transformative aspect of modern education, allowing individuals to access high-quality resources.'
+  'Practice questions adapt to your performance, focusing on question types where you make errors. Our system tracks skills at the granular level and adjusts difficulty in real-time.'
 },
 {
   icon: User,
-  title: 'Expert Mentors',
+  title: 'Full-Length Simulations',
   description:
-  'Expert mentors are invaluable assets in any field, providing seasoned guidance, knowledge, and support to help you navigate your path.'
+  'Experience the real Digital SAT format with module-based routing, accurate timing, and scoring estimates. Practice under test conditions to build confidence.'
 },
 {
   icon: Lightbulb,
-  title: 'Learn in demand skills',
+  title: 'Skill-Level Analytics',
   description:
-  "In today's rapidly evolving job market, learning in-demand skills is crucial for career advancement and staying competitive."
+  'See exactly which skills need work with detailed breakdowns by question type, error patterns, and timing behavior. Get personalized recommendations for focused practice.'
 }];
 
 export function Features() {

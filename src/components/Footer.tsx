@@ -48,12 +48,11 @@ export function Footer() {
                 </svg>
               </div>
               <span className="font-serif text-2xl font-bold text-[var(--color-primary)]">
-                Edufy
+                SAT Mastery
               </span>
             </div>
             <p className="text-gray-600 mb-6">
-              Empowering students to achieve their academic goals through
-              personalized online learning.
+              Adaptive SAT preparation that models the real test structure and tracks skills at the question-type level.
             </p>
             <div className="flex gap-4">
               <a
@@ -91,34 +90,34 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="#"
+                  href="#features"
                   className="text-gray-600 hover:text-[var(--color-primary)] transition-colors">
 
-                  About Us
+                  Features
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#how-it-works"
                   className="text-gray-600 hover:text-[var(--color-primary)] transition-colors">
 
-                  Our Courses
+                  How It Works
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#practice"
                   className="text-gray-600 hover:text-[var(--color-primary)] transition-colors">
 
-                  Success Stories
+                  Practice Tests
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#faq"
                   className="text-gray-600 hover:text-[var(--color-primary)] transition-colors">
 
-                  Instructors
+                  FAQ
                 </a>
               </li>
               <li>
@@ -152,7 +151,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <Mail className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0" />
-                <span>hello@edufy.com</span>
+                <span>hello@satmastery.com</span>
               </li>
             </ul>
           </div>
@@ -180,7 +179,7 @@ export function Footer() {
 
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © 2026 Edufy. All rights reserved.
+            © 2026 SAT Mastery. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
             <a href="#" className="hover:text-[var(--color-primary)]">

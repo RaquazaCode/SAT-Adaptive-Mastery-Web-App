@@ -10,11 +10,10 @@ export function CTASection() {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Are you ready to start your course?
+              Ready to master the Digital SAT?
             </h2>
             <p className="text-white/80 text-lg mb-10">
-              Join thousands of students who have already improved their SAT
-              scores. Start your journey to your dream college today.
+              Start your free diagnostic test and see how our adaptive system identifies your skill gaps. Join students improving their scores by 200+ points.
             </p>
             <button className="bg-[var(--color-accent-green)] text-[var(--color-primary)] px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-colors transform hover:scale-105 shadow-lg">
               Get Started Now

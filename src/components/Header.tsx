@@ -39,41 +39,41 @@ export function Header() {
               </svg>
             </div>
             <span className="font-serif text-2xl font-bold text-[var(--color-primary)]">
-              Edufy
+              SAT Mastery
             </span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a
-              href="#"
+              href="#features"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
 
-              Demos
+              Features
             </a>
             <a
-              href="#"
+              href="#how-it-works"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
 
-              CMS Pages
+              How It Works
             </a>
             <a
-              href="#"
+              href="#practice"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
 
-              Essential Pages
+              Practice Tests
             </a>
             <a
-              href="#"
+              href="#pricing"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
 
-              Contact
+              Pricing
             </a>
             <a
-              href="#"
+              href="#faq"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
 
-              About Us
+              FAQ
             </a>
           </nav>
 
@@ -83,7 +83,7 @@ export function Header() {
               <Search className="w-5 h-5" />
             </button>
             <button className="bg-[var(--color-accent-green)] text-[var(--color-primary)] px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105">
-              Join Our Course
+              Start Free Trial
             </button>
           </div>
 

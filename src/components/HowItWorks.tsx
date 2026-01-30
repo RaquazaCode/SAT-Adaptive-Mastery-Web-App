@@ -6,7 +6,7 @@ export function HowItWorks() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-dark)] mb-12">
-              Learn in 3 simple steps on Edufy.
+              Master the SAT in 3 simple steps.
             </h2>
 
             <div className="space-y-8">
@@ -19,8 +19,7 @@ export function HowItWorks() {
                     Take Diagnostic Test
                   </h3>
                   <p className="text-gray-600">
-                    Start with a full-length practice test to identify your
-                    strengths and areas for improvement.
+                    Start with a full-length Digital SAT simulation to identify your current score, strengths, and skill gaps across Reading & Writing and Math.
                   </p>
                 </div>
               </div>
@@ -31,11 +30,10 @@ export function HowItWorks() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-text-dark)] mb-2">
-                    Get Personalized Plan
+                    Get Adaptive Practice Plan
                   </h3>
                   <p className="text-gray-600">
-                    Receive a custom study schedule tailored to your target
-                    score and available study time.
+                    Our system analyzes your errors and timing to generate focused drills targeting your weakest question types and skills.
                   </p>
                 </div>
               </div>
@@ -46,11 +44,10 @@ export function HowItWorks() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-text-dark)] mb-2">
-                    Practice & Improve
+                    Practice & Track Progress
                   </h3>
                   <p className="text-gray-600">
-                    Follow your plan, watch video lessons, and take practice
-                    quizzes to boost your score.
+                    Complete adaptive drills and full simulations. Watch your skill mastery improve with real-time analytics showing which question types you've mastered.
                   </p>
                 </div>
               </div>
