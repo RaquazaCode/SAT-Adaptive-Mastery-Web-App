@@ -1,0 +1,82 @@
+---
+description: AI rules derived by SpecStory from the project AI interaction history
+globs: *
+---
+
+## PROJECT OVERVIEW
+
+This document outlines the rules and guidelines for the AI coding assistant to ensure consistent, high-quality code and efficient collaboration on this project. It covers code style, folder organization, tech stack, project-specific standards, workflow, and debugging.
+
+## CODE STYLE
+
+*   Follow industry best practices for code readability and maintainability.
+*   Use consistent indentation (e.g., 2 spaces for JavaScript/TypeScript).
+*   Write clear and concise comments to explain complex logic.
+*   Adhere to the principles of DRY (Don't Repeat Yourself).
+
+## FOLDER ORGANIZATION
+
+*   Maintain a clear and logical folder structure.
+*   Group related files together.
+*   Use descriptive names for folders and files.
+*   The `src` directory should contain all source code.
+*   Component files should be located in `src/components`.
+*   Use a `/reference` folder for visual references like screenshots and exported HTML.
+*   Use `/prd` for core product specifications.
+*   Use `/research` for research documents.
+*   Consider a `/docs` folder, potentially with `/docs/prd` for product overviews (see WORKFLOW & RELEASE RULES).
+
+## TECH STACK
+
+*   React
+*   TypeScript
+*   Tailwind CSS
+*   Vite
+
+## PROJECT-SPECIFIC STANDARDS
+
+*   TBD - Will be defined as the project evolves.
+
+## WORKFLOW & RELEASE RULES
+
+*   Use Git for version control.
+*   Create branches for new features or bug fixes.
+*   Submit pull requests for code review.
+*   Follow a defined release process (TBD).
+*   The first commit should ideally include:
+    *   A running app
+    *   A README with setup steps
+    *   A basic `/docs/prd/00-overview.md` (or equivalent in `/prd`)
+    *   `.cursor/rules.md` (this file)
+    *   `ENV.example` (even if empty) plus `.env.local` in `.gitignore`
+    *   Prettier + ESLint configured
+*   Subsequent commits should be staged properly and step-by-step.
+
+## REFERENCE EXAMPLES
+
+*   TBD - Examples of code patterns, component structures, etc., will be added here as the project progresses.
+
+## PROJECT DOCUMENTATION & CONTEXT SYSTEM
+
+*   Maintain up-to-date documentation for all major components and features.
+*   Use a consistent documentation style.
+*   Document any project-specific decisions or deviations from standard practices.
+
+## DEBUGGING
+
+*   Utilize browser developer tools for front-end debugging.
+*   Employ logging and debugging techniques appropriate for the tech stack.
+
+## FINAL DOs AND DON'Ts
+
+*   **DO** write clean, well-documented code.
+*   **DO** follow the established coding style and project standards.
+*   **DO** ask questions when unsure.
+*   **DON'T** commit code without testing.
+*   **DON'T** repeat code unnecessarily.
+*   **DO** prefer downloading code templates over screenshotting and saving as HTML.
+*   **DO** establish one source of truth for the codebase.
+*   **DO** use Git from the start.
+*   **DO** keep design references separate from the codebase.
+*   **DO** check for `package.json` (or similar) to identify a real project.
+*   **DO** consider adding attribution to the README for the original template.
