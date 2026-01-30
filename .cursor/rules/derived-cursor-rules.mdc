@@ -46,7 +46,7 @@ This document outlines the rules and guidelines for the AI coding assistant to e
 *   The first commit should ideally include:
     *   A running app
     *   A README with setup steps
-    *   A basic `/docs/prd/00-overview.md` (or equivalent in `/prd`)
+    *   Basic `/docs/prd/00-overview.md` (or equivalent in `/prd`)
     *   `.cursor/rules.md` (this file)
     *   `ENV.example` (even if empty) plus `.env.local` in `.gitignore`
     *   Prettier + ESLint configured
@@ -80,3 +80,4 @@ This document outlines the rules and guidelines for the AI coding assistant to e
 *   **DO** keep design references separate from the codebase.
 *   **DO** check for `package.json` (or similar) to identify a real project.
 *   **DO** consider adding attribution to the README for the original template.
+*   **DON'T** treat screenshots or exported HTML as the codebase. They should be used for design reference only.
