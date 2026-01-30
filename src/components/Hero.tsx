@@ -1,5 +1,17 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
+
+type FloatingTagStyle = React.CSSProperties & {
+  ['--rotation']?: string;
+};
+
+const floatingTagStyle = (
+  rotation: string,
+  animationDelay?: string,
+): FloatingTagStyle => ({
+  '--rotation': rotation,
+  ...(animationDelay ? { animationDelay } : {}),
+});
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pt-12 pb-20 lg:pt-20 lg:pb-28">
@@ -26,33 +38,19 @@ export function Hero() {
             <div className="relative mt-16 h-32 hidden sm:block">
               <div
                 className="absolute left-0 top-0 bg-[var(--color-accent-blue)] text-[var(--color-primary)] px-6 py-2 rounded-full transform -rotate-6 animate-float"
-                style={
-                {
-                  '--rotation': '-6deg'
-                } as any
-                }>
+                style={floatingTagStyle('-6deg')}>
 
                 <span className="font-semibold">Reading & Writing</span>
               </div>
               <div
                 className="absolute left-32 top-12 bg-[var(--color-accent-orange)] text-[var(--color-primary)] px-6 py-2 rounded-full transform rotate-12 animate-float"
-                style={
-                {
-                  '--rotation': '12deg',
-                  animationDelay: '1s'
-                } as any
-                }>
+                style={floatingTagStyle('12deg', '1s')}>
 
                 <span className="font-semibold">Math Mastery</span>
               </div>
               <div
                 className="absolute left-10 top-24 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] px-6 py-2 rounded-full transform -rotate-3 animate-float"
-                style={
-                {
-                  '--rotation': '-3deg',
-                  animationDelay: '2s'
-                } as any
-                }>
+                style={floatingTagStyle('-3deg', '2s')}>
 
                 <span className="font-semibold">Practice Tests</span>
               </div>
