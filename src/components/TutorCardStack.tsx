@@ -86,7 +86,7 @@ const products: FeatureCard[] = [
       { label: "Skills", value: "Mastery %" },
       { label: "Trends", value: "Over time" },
       { label: "Weaknesses", value: "Prioritized" },
-      { label: "Next", value: "Recommendations" },
+      { label: "Next", value: "My Tutor" },
     ],
     description:
       "Watch your tutor celebrate improvements. See skills mastered and get personalized next steps.",
@@ -189,25 +189,38 @@ const Card = ({ product, index, totalCards, isExpanded }: CardProps) => {
         <div
           className={cn(
             "relative aspect-[16/11] w-full overflow-hidden rounded-lg",
-            "bg-[var(--color-bg-light)]",
             "border border-[var(--color-primary)]/10",
-            "shadow-inner"
+            "shadow-inner",
+            product.id === "diagnostic"
+              ? "bg-[var(--color-accent-green)]/30"
+              : "bg-[var(--color-bg-light)]"
           )}
         >
-          <img
-            alt={product.title}
-            className="h-full w-full object-cover"
-            loading="lazy"
-            src={product.image}
-          />
-          {product.id === "diagnostic" && (
-            <span
-              className="absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl pointer-events-none select-none transition-transform duration-150 group-hover:animate-bounce"
-              role="img"
-              aria-hidden
-            >
-              👩‍🎓
-            </span>
+          {product.id === "diagnostic" ? (
+            <>
+              <div className="absolute inset-0 bg-[var(--color-accent-green)]/40" aria-hidden />
+              <span
+                className="absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl pointer-events-none select-none transition-transform duration-150 group-hover:animate-bounce"
+                role="img"
+                aria-hidden
+              >
+                👩‍🎓
+              </span>
+            </>
+          ) : (
+            <>
+              <img
+                alt={product.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                src={product.image}
+              />
+              {/* Same light green tint for Drills and Simulation so colors match */}
+              <div
+                className="absolute inset-0 bg-[var(--color-accent-green)]/10 pointer-events-none"
+                aria-hidden
+              />
+            </>
           )}
         </div>
 
