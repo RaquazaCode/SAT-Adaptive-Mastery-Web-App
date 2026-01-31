@@ -20,15 +20,18 @@ export function Hero() {
           {/* Left Content */}
           <div className="relative z-10 max-w-2xl">
             <h1 className="text-5xl lg:text-7xl font-bold text-[var(--color-text-dark)] leading-[1.1] mb-6">
-              Master the Digital SAT with Adaptive Practice
+              Your Personal SAT Tutor That Never Sleeps
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-              Our AI-powered system models the real SAT test structure, tracks your skills at the question-type level, and adapts practice to your errors and timing. Join students improving their scores by 200+ points.
+              Get the proven power of 1-on-1 tutoring, available whenever you need it. Your tutor learns your error patterns, adapts to your schedule, and gets smarter about your weaknesses with every practice session. Join students improving their scores by 200+ points.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
               <button className="bg-[var(--color-primary)] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2d4434] transition-all transform hover:scale-105 shadow-lg">
-                Get Started Now
+                Meet Your Tutor
+              </button>
+              <button className="border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--color-primary)] hover:text-white transition-all">
+                Start Free Diagnostic
               </button>
             </div>
 

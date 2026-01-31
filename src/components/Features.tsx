@@ -3,21 +3,21 @@ import { Monitor, User, Lightbulb } from 'lucide-react';
 const features = [
 {
   icon: Monitor,
-  title: 'Adaptive Practice Engine',
+  title: 'Your Tutor Learns Your Patterns',
   description:
-  'Practice questions adapt to your performance, focusing on question types where you make errors. Our system tracks skills at the granular level and adjusts difficulty in real-time.'
+  'Every mistake teaches your tutor something new. Your tutor tracks your errors at the question-type level, identifies your specific traps, and focuses practice exactly where you need it most.'
 },
 {
   icon: User,
-  title: 'Full-Length Simulations',
+  title: 'Practice Tests with Your Tutor',
   description:
-  'Experience the real Digital SAT format with module-based routing, accurate timing, and scoring estimates. Practice under test conditions to build confidence.'
+  'Take full-length Digital SAT simulations while your tutor watches. After each test, your tutor explains your routing results, shows where you improved, and creates your next practice plan.'
 },
 {
   icon: Lightbulb,
-  title: 'Skill-Level Analytics',
+  title: 'Your Tutor Knows Your Weaknesses',
   description:
-  'See exactly which skills need work with detailed breakdowns by question type, error patterns, and timing behavior. Get personalized recommendations for focused practice.'
+  'Your tutor builds a complete picture of your skills over time. See exactly which question types trip you up, how your timing affects performance, and get personalized recommendations that evolve as you improve.'
 }];
 
 export function Features() {

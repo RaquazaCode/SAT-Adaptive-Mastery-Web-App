@@ -2,19 +2,29 @@ import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 const faqs = [
 {
-  question: 'How does the adaptive practice system work?',
+  question: 'How does my tutor learn about me?',
   answer:
-  'Our system tracks your performance at the question-type level, identifying which skills need work. Practice drills automatically adjust difficulty and focus on your weak areas based on error patterns and timing behavior.'
+  'Your tutor watches every question you answer—right or wrong, fast or slow. Over time, your tutor builds a complete picture: which question types trip you up, which traps you fall into, and how your timing affects performance. Every practice session makes your tutor smarter about your specific needs.'
 },
 {
-  question: 'Are the simulations accurate to the real Digital SAT?',
+  question: 'Is this really like having a personal tutor?',
   answer:
-  'Yes. Our simulations mirror the real Digital SAT format with module-based routing, accurate timing (32 min per R&W module, 35 min per Math module), and scoring estimates based on Item Response Theory.'
+  'Yes. Research shows 1-on-1 tutoring improves outcomes by two standard deviations—the most effective teaching method. Your tutor provides that same personalized attention, available 24/7. Your tutor adapts to your schedule, learns your patterns, and gives you instant feedback just like a human tutor would—but without the scheduling hassles or high cost.'
+},
+{
+  question: 'How does this compare to hiring a human tutor?',
+  answer:
+  'Your personal tutor offers the same proven benefits of 1-on-1 tutoring (personalization, instant feedback, encouragement) but with key advantages: available whenever you need it, never judges, gets smarter about you over time, and costs a fraction of human tutors ($20-50/month vs. $500-2000/month). You get the best of both worlds.'
 },
 {
   question: 'What score improvement can I expect?',
   answer:
-  'Students using our adaptive system typically see 150-250 point improvements. Results vary based on starting score, study time, and consistency. Our system focuses on skill mastery rather than just practice volume.'
+  'Students working with their personal tutor typically see 150-250 point improvements. Results vary based on starting score, study time, and consistency. Your tutor focuses on skill mastery rather than just practice volume, targeting exactly what you need to improve.'
+},
+{
+  question: 'Can I practice whenever I want?',
+  answer:
+  'Absolutely. Your tutor is available 24/7. Practice at 6am before school, 11pm after homework, or any time that fits your schedule. Your tutor picks up exactly where you left off and remembers everything about your progress.'
 },
 {
   question: 'Do I need to create an account?',
@@ -32,7 +42,7 @@ export function FAQ() {
             Frequently asked questions
           </h2>
           <p className="text-gray-600">
-            Everything you need to know about SAT Adaptive Mastery.
+            Everything you need to know about your personal SAT tutor.
           </p>
         </div>
 
