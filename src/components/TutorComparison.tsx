@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, X } from 'lucide-react';
+import { Check, Star } from 'lucide-react';
 
 const comparisonData = [
   {
@@ -53,7 +53,7 @@ export function TutorComparison() {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto pt-10">
           <table className="w-full border-separate border-spacing-0">
             <thead>
               <tr>
@@ -66,8 +66,9 @@ export function TutorComparison() {
                 <th className="text-center py-6 px-6 font-bold text-gray-500 text-lg border-b-2 border-gray-100 opacity-70">
                   Human Tutors
                 </th>
-                <th className="relative text-center py-6 px-6 font-bold text-[var(--color-primary)] text-xl bg-[var(--color-primary)]/5 rounded-t-2xl border-t-2 border-x-2 border-[var(--color-primary)]/10 shadow-[0_-4px_20px_rgba(61,90,69,0.05)]">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                <th className="relative text-center py-8 px-6 font-bold text-[var(--color-primary)] text-xl bg-[var(--color-primary)]/10 rounded-t-2xl border-t-2 border-x-2 border-[var(--color-primary)]/20 shadow-[0_-4px_24px_rgba(61,90,69,0.08)]">
+                  <div className="absolute left-1/2 -translate-x-1/2 -top-6 flex items-center gap-1.5 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] text-sm font-bold px-4 py-2 rounded-full shadow-md border border-[var(--color-primary)]/20 whitespace-nowrap">
+                    <Star className="w-4 h-4 fill-current" aria-hidden />
                     BEST VALUE
                   </div>
                   Your Personal Tutor
