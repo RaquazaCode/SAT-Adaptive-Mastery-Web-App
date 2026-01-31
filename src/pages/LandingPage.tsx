@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
+import { PageMeta } from '../components/PageMeta';
 import { LogoBar } from '../components/LogoBar';
 import { Features } from '../components/Features';
 import { PersonalTutor } from '../components/PersonalTutor';

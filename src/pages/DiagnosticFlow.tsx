@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PageMeta } from '../components/PageMeta';
 import { DiagnosticStart } from '../components/diagnostic/DiagnosticStart';
 import { ModuleView } from '../components/diagnostic/ModuleView';
 import { ModuleTransition } from '../components/diagnostic/ModuleTransition';
