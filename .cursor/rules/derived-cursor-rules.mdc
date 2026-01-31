@@ -51,6 +51,8 @@ This document outlines the rules and guidelines for the AI coding assistant to e
     *   `ENV.example` (even if empty) plus `.env.local` in `.gitignore`
     *   Prettier + ESLint configured
 *   Subsequent commits should be staged properly and step-by-step.
+*   **DO** stage, add, commit, and write appropriate messages + descriptions to Github across this project across all updates, features, etc.
+*   Aim for one feature per commit (or one logical chunk).
 
 ## REFERENCE EXAMPLES
 
@@ -61,6 +63,17 @@ This document outlines the rules and guidelines for the AI coding assistant to e
 *   Maintain up-to-date documentation for all major components and features.
 *   Use a consistent documentation style.
 *   Document any project-specific decisions or deviations from standard practices.
+*   ChatGPT Spec. Use for system brain:
+    *   Data models: QuestionType, Skill, TrapType, ErrorEvent.
+    *   SAT structure, routing, scoring abstraction.
+    *   Question taxonomy and difficulty logic.
+    *   Weakness scoring and drill sequencing rules. Use this for database schema, scoring engine, adaptive drill selection.
+*   Gemini Spec. Use for training behavior:
+    *   Psychometric framing and MST realism.
+    *   Mistake types and review logic.
+    *   Elite decision loop and pacing behavior.
+    *   Strategy layer like Desmos first, strict literal reading. Use this for hints, feedback, review UX, and strategy tagging.
+    *   Rule for your agents: ChatGPT file defines what the system knows. Gemini file defines how the system trains the user.
 
 ## DEBUGGING
 
