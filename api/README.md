@@ -47,6 +47,14 @@ All endpoints are in `/api/` directory and follow Vercel serverless function con
 - `GET /api/analytics/skills/:user_id` - Get user skill states
 - `GET /api/analytics/weaknesses/:user_id` - Get weakness scores
 
+### Content Pipeline (Bulk Import)
+
+- `POST /api/content/import` - Bulk import skills, trap_types, question_types, and items
+  - Body: `{ skills?, trap_types?, question_types?, items? }` (JSON per PRD 04)
+  - Validates per PRD 04 and ChatGPT spec (question type ID pattern, domain, stimulus length, MCQ 4 options, difficulty D1–D5)
+  - Inserts in order: skills → trap_types → question_types → items
+  - Returns: `{ message, inserted: { skills, trap_types, question_types, items } }`
+
 ## Implementation Notes
 
 - Use Supabase client: `createClient(SUPABASE_URL, SUPABASE_ANON_KEY)`
