@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
-import heroTutorInterface from '../assets/hero-tutor-interface.svg';
+import { HeroTutorInterface } from './hero/HeroTutorInterface';
 
 type FloatingTagStyle = React.CSSProperties & {
   ['--rotation']?: string;
@@ -71,50 +71,22 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="relative lg:h-[600px] w-full">
-            <div className="relative h-full w-full rounded-3xl overflow-hidden bg-[var(--color-primary)]">
-              {/* Decorative Curves */}
+          {/* Right: Interactive Tutor Interface */}
+          <div className="relative lg:h-[600px] w-full" aria-label="Tutor dashboard preview">
+            <div className="relative h-full w-full rounded-3xl overflow-hidden bg-[var(--color-primary)] min-h-[400px]">
+              {/* Decorative background curves */}
               <svg
                 className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20"
                 viewBox="0 0 400 400"
-                preserveAspectRatio="none">
-
-                <path
-                  d="M0,100 C150,200 250,0 400,100"
-                  stroke="white"
-                  strokeWidth="2"
-                  fill="none" />
-
-                <path
-                  d="M0,200 C150,300 250,100 400,200"
-                  stroke="white"
-                  strokeWidth="2"
-                  fill="none" />
-
-                <path
-                  d="M0,300 C150,400 250,200 400,300"
-                  stroke="white"
-                  strokeWidth="2"
-                  fill="none" />
-
+                preserveAspectRatio="none"
+                aria-hidden="true">
+                <path d="M0,100 C150,200 250,0 400,100" stroke="white" strokeWidth="2" fill="none" />
+                <path d="M0,200 C150,300 250,100 400,200" stroke="white" strokeWidth="2" fill="none" />
+                <path d="M0,300 C150,400 250,200 400,300" stroke="white" strokeWidth="2" fill="none" />
               </svg>
-
-              <img
-                src={heroTutorInterface}
-                alt="High school student studying SAT prep on laptop with personalized tutor dashboard visible on screen"
-                className="w-full h-full object-cover object-center mix-blend-overlay opacity-90"
-              />
-
-
-              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[var(--color-primary)]/80 to-transparent"></div>
-
-              <img
-                src={heroTutorInterface}
-                alt="Student with SAT tutor interface showing skill breakdown and practice recommendations"
-                className="absolute bottom-0 right-0 w-[90%] h-auto object-contain z-10"
-              />
-
+              {/* Soft gradient behind the card */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/60 via-transparent to-transparent pointer-events-none" />
+              <HeroTutorInterface />
             </div>
           </div>
         </div>
