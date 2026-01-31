@@ -48,12 +48,12 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              to="/#features"
+              to="/features"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
               Features
             </Link>
             <Link
-              to="/#how-it-works"
+              to="/how-it-works"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
               How It Works
             </Link>
@@ -63,12 +63,12 @@ export function Header() {
               Practice Tests
             </Link>
             <Link
-              to="/#pricing"
+              to="/pricing"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
               Pricing
             </Link>
             <Link
-              to="/#faq"
+              to="/faq"
               className="text-gray-600 hover:text-[var(--color-primary)] font-medium transition-colors">
               FAQ
             </Link>

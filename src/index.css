@@ -33,10 +33,28 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom Animations */
 @keyframes float {
   0% { transform: translateY(0px) rotate(var(--rotation)); }
-  50% { transform: translateY(-10px) rotate(var(--rotation)); }
+  50% { transform: translateY(-15px) rotate(var(--rotation)); }
   100% { transform: translateY(0px) rotate(var(--rotation)); }
 }
 
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(61, 90, 69, 0.4); }
+  50% { box-shadow: 0 0 20px 0 rgba(61, 90, 69, 0.2); }
+}
+
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
 }

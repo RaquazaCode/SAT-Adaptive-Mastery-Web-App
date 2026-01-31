@@ -43,12 +43,34 @@ export function PersonalTutor() {
           </p>
         </div>
 
-        <div className="mb-12 flex justify-center">
-          <img
-            src={tutorInteraction}
-            alt="Illustration of personalized tutor providing feedback to student; tutor interface shows encouragement and skill progress"
-            className="rounded-2xl shadow-lg max-w-2xl w-full object-cover"
-          />
+        <div className="mb-12 flex justify-center relative group cursor-pointer">
+          <div className="absolute inset-0 bg-[var(--color-accent-green)] rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"></div>
+          <div className="relative transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1">
+            <img
+              src={tutorInteraction}
+              alt="Illustration of personalized tutor providing feedback to student; tutor interface shows encouragement and skill progress"
+              className="rounded-2xl shadow-2xl max-w-2xl w-full object-cover border-4 border-white"
+            />
+            
+            {/* Owl Mascot Overlay */}
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-white rounded-full shadow-xl flex items-center justify-center animate-bounce-gentle border-4 border-[var(--color-accent-yellow)]">
+               <span className="text-6xl" role="img" aria-label="Owl Mascot">🦉</span>
+               <div className="absolute -bottom-2 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-full">
+                 Your Tutor!
+               </div>
+            </div>
+
+            {/* Interactive Chat Bubble */}
+            <div className="absolute -bottom-8 -left-8 bg-white p-4 rounded-2xl shadow-xl max-w-xs transform -rotate-2 group-hover:rotate-0 transition-transform duration-300 border border-gray-100">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">Live Feedback</span>
+              </div>
+              <p className="text-[var(--color-primary)] font-bold text-lg">
+                "Great job! You mastered Linear Equations."
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">

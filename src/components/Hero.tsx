@@ -42,35 +42,31 @@ export function Hero() {
             </div>
 
             {/* Floating Tags - Decorative */}
-            <div className="relative mt-16 h-32 hidden sm:block">
+            <div className="relative mt-16 h-40 hidden sm:block">
               <div
-                className="absolute left-0 top-0 bg-[var(--color-accent-blue)] text-[var(--color-primary)] px-6 py-2 rounded-full transform -rotate-6 animate-float"
+                className="absolute left-0 top-0 bg-[var(--color-accent-blue)] text-[var(--color-primary)] px-8 py-3 rounded-full transform -rotate-6 animate-float shadow-lg hover:scale-110 transition-transform cursor-pointer z-20"
                 style={floatingTagStyle('-6deg')}>
-
-                <span className="font-semibold">Reading & Writing</span>
+                <span className="font-bold text-xl">Reading & Writing</span>
               </div>
               <div
-                className="absolute left-32 top-12 bg-[var(--color-accent-orange)] text-[var(--color-primary)] px-6 py-2 rounded-full transform rotate-12 animate-float"
+                className="absolute left-40 top-16 bg-[var(--color-accent-orange)] text-[var(--color-primary)] px-8 py-3 rounded-full transform rotate-12 animate-float shadow-lg hover:scale-110 transition-transform cursor-pointer z-10"
                 style={floatingTagStyle('12deg', '1s')}>
-
-                <span className="font-semibold">Math Mastery</span>
+                <span className="font-bold text-xl">Math Mastery</span>
               </div>
               <div
-                className="absolute left-10 top-24 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] px-6 py-2 rounded-full transform -rotate-3 animate-float"
+                className="absolute left-10 top-32 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] px-8 py-3 rounded-full transform -rotate-3 animate-float shadow-lg hover:scale-110 transition-transform cursor-pointer z-30"
                 style={floatingTagStyle('-3deg', '2s')}>
-
-                <span className="font-semibold">Practice Tests</span>
+                <span className="font-bold text-xl">Practice Tests</span>
               </div>
-              <div className="absolute left-64 top-4 text-[var(--color-accent-orange)] animate-pulse">
-                <Sparkles className="w-12 h-12" />
+              <div className="absolute left-72 top-4 text-[var(--color-accent-orange)] animate-pulse">
+                <Sparkles className="w-16 h-16" />
               </div>
               <div
-                className="absolute left-[-20px] top-20 text-[var(--color-accent-green)] animate-pulse"
+                className="absolute left-[-30px] top-24 text-[var(--color-accent-green)] animate-pulse"
                 style={{
                   animationDelay: '1.5s'
                 }}>
-
-                <Sparkles className="w-10 h-10" />
+                <Sparkles className="w-12 h-12" />
               </div>
             </div>
           </div>

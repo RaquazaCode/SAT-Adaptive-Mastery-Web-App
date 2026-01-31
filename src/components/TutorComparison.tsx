@@ -54,19 +54,22 @@ export function TutorComparison() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
+          <table className="w-full border-separate border-spacing-0">
             <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="text-left py-4 px-6 font-bold text-[var(--color-text-dark)]">
+              <tr>
+                <th className="text-left py-6 px-6 font-bold text-[var(--color-text-dark)] text-lg border-b-2 border-gray-100">
                   Feature
                 </th>
-                <th className="text-center py-4 px-6 font-bold text-gray-600">
+                <th className="text-center py-6 px-6 font-bold text-gray-500 text-lg border-b-2 border-gray-100 opacity-70">
                   Generic Prep Courses
                 </th>
-                <th className="text-center py-4 px-6 font-bold text-gray-600">
+                <th className="text-center py-6 px-6 font-bold text-gray-500 text-lg border-b-2 border-gray-100 opacity-70">
                   Human Tutors
                 </th>
-                <th className="text-center py-4 px-6 font-bold text-[var(--color-primary)] bg-[var(--color-primary)]/10">
+                <th className="relative text-center py-6 px-6 font-bold text-[var(--color-primary)] text-xl bg-[var(--color-primary)]/5 rounded-t-2xl border-t-2 border-x-2 border-[var(--color-primary)]/10 shadow-[0_-4px_20px_rgba(61,90,69,0.05)]">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                    BEST VALUE
+                  </div>
                   Your Personal Tutor
                 </th>
               </tr>
@@ -75,23 +78,33 @@ export function TutorComparison() {
               {comparisonData.map((row, index) => (
                 <tr
                   key={index}
-                  className={`border-b border-gray-100 ${
-                    index % 2 === 0 ? 'bg-gray-50/50' : ''
-                  }`}>
-                  <td className="py-4 px-6 font-semibold text-[var(--color-text-dark)]">
+                  className="group transition-colors hover:bg-gray-50/50">
+                  <td className="py-6 px-6 font-bold text-[var(--color-text-dark)] border-b border-gray-100 group-hover:text-[var(--color-primary)] transition-colors">
                     {row.feature}
                   </td>
-                  <td className="py-4 px-6 text-center text-gray-600">
+                  <td className="py-6 px-6 text-center text-gray-500 border-b border-gray-100">
                     {row.generic}
                   </td>
-                  <td className="py-4 px-6 text-center text-gray-600">
+                  <td className="py-6 px-6 text-center text-gray-500 border-b border-gray-100">
                     {row.human}
                   </td>
-                  <td className="py-4 px-6 text-center font-semibold text-[var(--color-primary)] bg-[var(--color-primary)]/5">
+                  <td className="py-6 px-6 text-center font-bold text-[var(--color-primary)] bg-[var(--color-primary)]/5 border-x-2 border-[var(--color-primary)]/10 group-hover:bg-[var(--color-primary)]/10 transition-colors relative">
+                    {index === comparisonData.length - 1 && (
+                       <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-t from-[var(--color-primary)]/10 to-transparent"></div>
+                    )}
                     {row.personalTutor}
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Check className="w-5 h-5 text-[var(--color-accent-green)]" />
+                    </div>
                   </td>
                 </tr>
               ))}
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td className="h-4 bg-[var(--color-primary)]/5 rounded-b-2xl border-b-2 border-x-2 border-[var(--color-primary)]/10"></td>
+              </tr>
             </tbody>
           </table>
         </div>
