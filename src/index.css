@@ -58,3 +58,33 @@ h1, h2, h3, h4, h5, h6 {
 .animate-pulse-glow {
   animation: pulse-glow 2s infinite;
 }
+
+/* Logo bar slider: right to left */
+@keyframes logo-slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-logo-slide {
+  animation: logo-slide-left 40s linear infinite;
+}
+
+.animate-logo-slide-paused {
+  animation-play-state: paused;
+}
+
+/* Thought bubble: bubble up on hover */
+@keyframes thought-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-thought-bubble {
+  animation: thought-bubble-in 0.22s ease-out forwards;
+}
