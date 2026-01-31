@@ -39,7 +39,7 @@ export function estimateTheta(
       sum += params.b - 0.5; // Correct answers suggest higher ability
       count++;
     } else {
-      sum += params.b + 0.5; // Wrong answers suggest lower ability
+      sum += params.b - 1.0; // Wrong answers suggest lower ability (theta < 0 for poor performance)
       count++;
     }
   });
@@ -131,4 +131,42 @@ export function calculateTotalScore(
   mathScore: number,
 ): number {
   return rwScore + mathScore; // 400-1600 range
+}
+
+/** Minimal response shape for routing risk (first 10 of Module 1) */
+export interface RoutingRiskResponse {
+  correct: boolean;
+  time_spent_s: number;
+}
+
+/** PRD 03: Routing risk when accuracy < 60%, avg time > 1.2× budget, or > 3 errors in first 10 */
+const RW_TIME_BUDGET_PER_QUESTION = 71;
+
+export function checkRoutingRisk(
+  responses: RoutingRiskResponse[],
+  timeBudgetPerQuestion: number = RW_TIME_BUDGET_PER_QUESTION,
+): { isAtRisk: boolean; reasons: string[] } {
+  const reasons: string[] = [];
+  if (responses.length === 0) return { isAtRisk: false, reasons };
+
+  const correctCount = responses.filter((r) => r.correct).length;
+  const accuracy = correctCount / responses.length;
+  if (accuracy < 0.6) {
+    reasons.push('Accuracy in the first 10 questions is below 60%');
+  }
+  const errorsFirst10 = responses.length - correctCount;
+  if (errorsFirst10 > 3) {
+    reasons.push('More than 3 errors in the first 10 questions');
+  }
+
+  const avgTime =
+    responses.reduce((acc, r) => acc + r.time_spent_s, 0) / responses.length;
+  if (avgTime > 1.2 * timeBudgetPerQuestion) {
+    reasons.push('Average time per question exceeds 1.2× time budget');
+  }
+
+  return {
+    isAtRisk: reasons.length > 0,
+    reasons,
+  };
 }
