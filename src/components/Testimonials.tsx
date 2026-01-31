@@ -1,26 +1,28 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
-import testimonialPlaceholder from '../assets/testimonial-placeholder.svg';
 
 const testimonials = [
   {
     name: 'Sarah Johnson',
     role: 'Improved 250 points',
-    image: testimonialPlaceholder,
+    image:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=96&h=96&fit=crop&crop=faces',
     quote:
       'My tutor knew exactly where I struggled. Every practice session felt like it was designed just for me. The feedback was so personalized—I finally understood why I was making mistakes.',
   },
   {
     name: 'Michael Chen',
     role: 'Scored 1520',
-    image: testimonialPlaceholder,
+    image:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces',
     quote:
       'It felt like having a tutor available 24/7. I could practice at midnight after my part-time job, and my tutor was always there with instant feedback. The encouragement kept me going.',
   },
   {
     name: 'Emily Davis',
     role: 'Improved 180 points',
-    image: testimonialPlaceholder,
+    image:
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&h=96&fit=crop&crop=faces',
     quote:
       'My tutor never judged me for mistakes. Instead, my tutor explained what went wrong and helped me learn from it. The support made all the difference—I actually looked forward to practicing.',
   },
