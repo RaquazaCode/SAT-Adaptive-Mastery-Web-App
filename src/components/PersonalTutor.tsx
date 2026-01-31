@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, Brain, Heart, TrendingUp } from 'lucide-react';
+import tutorInteraction from '../assets/tutor-interaction.svg';
 
 const tutorFeatures = [
   {
@@ -40,6 +41,14 @@ export function PersonalTutor() {
             Your tutor never sleeps, never judges, and gets smarter about you every day. 
             Experience the proven power of 1-on-1 tutoring, available whenever you need it.
           </p>
+        </div>
+
+        <div className="mb-12 flex justify-center">
+          <img
+            src={tutorInteraction}
+            alt="Illustration of personalized tutor providing feedback to student; tutor interface shows encouragement and skill progress"
+            className="rounded-2xl shadow-lg max-w-2xl w-full object-cover"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">

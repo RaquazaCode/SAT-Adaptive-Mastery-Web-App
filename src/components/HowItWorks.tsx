@@ -1,4 +1,6 @@
 import React from 'react';
+import howTutorWorks from '../assets/how-tutor-works.svg';
+
 export function HowItWorks() {
   return (
     <section className="py-20 bg-white">
@@ -57,9 +59,10 @@ export function HowItWorks() {
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Student learning on laptop"
-                className="w-full h-full object-cover" />
+                src={howTutorWorks}
+                alt="Three-panel illustration: tutor assessing student with diagnostic, creating personalized plan, and guiding practice with instant feedback"
+                className="w-full h-full object-cover"
+              />
 
             </div>
           </div>
