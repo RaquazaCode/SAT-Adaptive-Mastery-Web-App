@@ -25,7 +25,7 @@ export function Hero() {
               Your Personal SAT Tutor That Never Sleeps
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-              Get the proven power of 1-on-1 tutoring, available whenever you need it. Your tutor learns your error patterns, adapts to your schedule, and gets smarter about your weaknesses with every practice session. Join students improving their scores by 200+ points.
+              1-on-1 world class tutoring – affordable for ALL students 💸
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">

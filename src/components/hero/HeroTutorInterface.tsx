@@ -46,36 +46,36 @@ export function HeroTutorInterface() {
   ];
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center p-6 lg:p-8">
-      {/* App-window style container */}
-      <div className="relative w-full max-w-md rounded-2xl bg-white/95 backdrop-blur-sm shadow-2xl border border-white/20 overflow-hidden">
+    <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8">
+      {/* App-window style container: scale down on mobile */}
+      <div className="relative w-full max-w-md rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-sm shadow-2xl border border-white/20 overflow-hidden min-w-0">
         {/* Title bar */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-[var(--color-primary)] text-white">
-          <div className="flex gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-white/30" />
-            <span className="w-3 h-3 rounded-full bg-white/30" />
-            <span className="w-3 h-3 rounded-full bg-white/30" />
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 bg-[var(--color-primary)] text-white min-h-[44px] sm:min-h-0">
+          <div className="flex gap-1 sm:gap-1.5 shrink-0">
+            <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/30" />
+            <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/30" />
+            <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/30" />
           </div>
-          <span className="ml-2 font-semibold text-sm">Your Personal Tutor</span>
-          <span className="ml-auto flex items-center gap-1.5 text-xs bg-white/20 px-2.5 py-1 rounded-full text-white font-medium">
-            <Zap className="w-3.5 h-3.5 text-[var(--color-accent-yellow)] animate-pulse flex-shrink-0" />
+          <span className="ml-1 sm:ml-2 font-semibold text-xs sm:text-sm truncate">Your Personal Tutor</span>
+          <span className="ml-auto flex items-center gap-1 sm:gap-2 bg-[var(--color-accent-yellow)] text-[var(--color-primary)] text-xs sm:text-sm font-bold px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full shadow-md border border-[var(--color-primary)]/20 whitespace-nowrap shrink-0">
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 animate-zap-pulse" />
             <span>{liveCount} studying now</span>
           </span>
         </div>
 
         {/* Content */}
-        <div className="p-5 space-y-5">
+        <div className="p-3 sm:p-4 md:p-5 space-y-3 sm:space-y-4 md:space-y-5">
           {/* Rotating value message */}
-          <div className="flex items-start gap-3 p-3 rounded-xl bg-[var(--color-accent-green)]/30 border border-[var(--color-primary)]/10">
-            <MessageCircle className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0 mt-0.5" />
-            <p className="text-[var(--color-primary)] font-semibold text-sm min-h-[2.5rem] flex items-center">
+          <div className="flex items-start gap-2 sm:gap-3 p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[var(--color-accent-green)]/30 border border-[var(--color-primary)]/10">
+            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[var(--color-primary)] flex-shrink-0 mt-0.5" />
+            <p className="text-[var(--color-primary)] font-semibold text-xs sm:text-sm min-h-[2rem] sm:min-h-[2.5rem] flex items-center leading-tight">
               {ROTATING_MESSAGES[messageIndex]}
             </p>
           </div>
 
           {/* Skill progress cards */}
-          <div className="space-y-3">
-            <p className="text-xs font-bold text-[var(--color-text-gray)] uppercase tracking-wide">
+          <div className="space-y-2 sm:space-y-3">
+            <p className="text-[10px] sm:text-xs font-bold text-[var(--color-text-gray)] uppercase tracking-wide">
               Your progress
             </p>
             {skills.map(({ id, label, progress, icon: Icon, color }) => (
@@ -83,20 +83,20 @@ export function HeroTutorInterface() {
                 key={id}
                 onMouseEnter={() => setHoveredCard(id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`p-3 rounded-xl border-2 transition-all duration-300 cursor-pointer ${
+                className={`p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl border-2 transition-all duration-300 cursor-pointer ${
                   hoveredCard === id
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/5 scale-[1.02] shadow-lg'
+                    ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/5 sm:scale-[1.02] shadow-lg'
                     : 'border-gray-200 bg-gray-50/80 hover:border-[var(--color-primary)]/50'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-semibold text-[var(--color-text-dark)] text-sm flex items-center gap-2">
-                    <Icon className="w-4 h-4" style={{ color }} />
-                    {label}
+                <div className="flex items-center justify-between mb-1 sm:mb-2">
+                  <span className="font-semibold text-[var(--color-text-dark)] text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 min-w-0">
+                    <Icon className="w-3 h-3 sm:w-4 sm:h-4 shrink-0" style={{ color }} />
+                    <span className="truncate">{label}</span>
                   </span>
-                  <span className="text-xs font-bold text-[var(--color-primary)]">{progress}%</span>
+                  <span className="text-xs font-bold text-[var(--color-primary)] shrink-0">{progress}%</span>
                 </div>
-                <div className="h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div className="h-1.5 sm:h-2 rounded-full bg-gray-200 overflow-hidden">
                   <div
                     className="h-full rounded-full transition-all duration-500"
                     style={{
@@ -110,11 +110,11 @@ export function HeroTutorInterface() {
           </div>
 
           {/* Affordability cue */}
-          <div className="flex items-center justify-between p-3 rounded-xl bg-[var(--color-accent-yellow)]/20 border border-[var(--color-accent-yellow)]/40">
-            <span className="text-sm font-semibold text-[var(--color-text-dark)]">
+          <div className="flex items-center justify-between gap-2 p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[var(--color-accent-yellow)]/20 border border-[var(--color-accent-yellow)]/40">
+            <span className="text-xs sm:text-sm font-semibold text-[var(--color-text-dark)] min-w-0 line-clamp-2 sm:line-clamp-none">
               Same attention as a $200/hr tutor
             </span>
-            <span className="text-sm font-bold text-[var(--color-primary)]">Included</span>
+            <span className="text-xs sm:text-sm font-bold text-[var(--color-primary)] shrink-0">Included</span>
           </div>
         </div>
 
