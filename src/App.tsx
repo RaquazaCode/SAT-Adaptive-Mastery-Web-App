@@ -1,33 +1,19 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { LogoBar } from './components/LogoBar';
-import { Features } from './components/Features';
-import { PersonalTutor } from './components/PersonalTutor';
-import { TutorComparison } from './components/TutorComparison';
-import { HowItWorks } from './components/HowItWorks';
-import { EmotionalSupport } from './components/EmotionalSupport';
-import { Testimonials } from './components/Testimonials';
-import { FAQ } from './components/FAQ';
-import { CTASection } from './components/CTASection';
-import { Footer } from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import { LandingPage } from './pages/LandingPage';
+import { DiagnosticFlow } from './pages/DiagnosticFlow';
+import { DrillFlow } from './pages/DrillFlow';
+import { SimulationFlow } from './pages/SimulationFlow';
+import { AnalyticsPage } from './pages/AnalyticsPage';
+
 export function App() {
   return (
-    <div className="min-h-screen bg-white font-sans text-[var(--color-text-dark)]">
-      <Header />
-      <main>
-        <Hero />
-        <LogoBar />
-        <Features />
-        <PersonalTutor />
-        <HowItWorks />
-        <TutorComparison />
-        <EmotionalSupport />
-        <Testimonials />
-        <FAQ />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>);
-
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/diagnostic" element={<DiagnosticFlow />} />
+      <Route path="/practice" element={<DrillFlow />} />
+      <Route path="/simulation" element={<SimulationFlow />} />
+      <Route path="/analytics" element={<AnalyticsPage />} />
+    </Routes>
+  );
 }
