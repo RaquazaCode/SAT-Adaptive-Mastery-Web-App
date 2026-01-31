@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 export function CTASection() {
   return (
     <section className="py-20 bg-white">
@@ -15,12 +17,14 @@ export function CTASection() {
             <p className="text-white/80 text-lg mb-10">
               Start your free diagnostic test and see how our adaptive system identifies your skill gaps. Join students improving their scores by 200+ points.
             </p>
-            <button className="bg-[var(--color-accent-green)] text-[var(--color-primary)] px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-colors transform hover:scale-105 shadow-lg">
+            <Link
+              to="/diagnostic"
+              className="inline-block bg-[var(--color-accent-green)] text-[var(--color-primary)] px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-colors transform hover:scale-105 shadow-lg">
               Get Started Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

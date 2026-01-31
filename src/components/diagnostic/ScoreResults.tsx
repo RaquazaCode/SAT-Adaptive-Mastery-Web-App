@@ -30,7 +30,7 @@ export function ScoreResults({
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8 text-center">
           <Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-bold text-[var(--color-text-dark)] mb-4">
-            Your Diagnostic Results
+            Your Score and What to Do Next
           </h1>
           <div className="mb-8">
             <p className="text-2xl text-gray-600 mb-2">Total Score</p>
@@ -114,7 +114,7 @@ export function ScoreResults({
           <button
             onClick={onStartPractice}
             className="bg-white text-[var(--color-primary)] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-3 mx-auto">
-            Start Practice with Your Tutor
+            Start Targeted Practice
             <ArrowRight className="w-6 h-6" />
           </button>
         </div>

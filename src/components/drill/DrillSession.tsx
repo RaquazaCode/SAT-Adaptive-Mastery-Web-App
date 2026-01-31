@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { CheckCircle, XCircle, ArrowRight } from 'lucide-react';
 
 interface Question {
@@ -22,6 +22,9 @@ export function DrillSession({ questions, onComplete }: DrillSessionProps) {
   const [responses, setResponses] = useState<
     Array<{ item_id: string; answer: string; time_spent_s: number; correct: boolean }>
   >([]);
+  const pendingFullResponsesRef = useRef<
+    Array<{ item_id: string; answer: string; time_spent_s: number }>
+  >([]);
 
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
@@ -40,6 +43,11 @@ export function DrillSession({ questions, onComplete }: DrillSessionProps) {
       correct: isCorrect,
     };
     const newResponses = [...responses, newResponse];
+    pendingFullResponsesRef.current = newResponses.map((r) => ({
+      item_id: r.item_id,
+      answer: r.answer,
+      time_spent_s: r.time_spent_s,
+    }));
     setResponses(newResponses);
     setShowFeedback(true);
   };
@@ -50,7 +58,7 @@ export function DrillSession({ questions, onComplete }: DrillSessionProps) {
       setSelectedAnswer('');
       setShowFeedback(false);
     } else {
-      onComplete(responses);
+      onComplete(pendingFullResponsesRef.current);
     }
   };
 

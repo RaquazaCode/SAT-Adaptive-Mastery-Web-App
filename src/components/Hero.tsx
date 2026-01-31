@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
+import heroTutorInterface from '../assets/hero-tutor-interface.svg';
 
 type FloatingTagStyle = React.CSSProperties & {
   ['--rotation']?: string;
@@ -27,12 +29,16 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              <button className="bg-[var(--color-primary)] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2d4434] transition-all transform hover:scale-105 shadow-lg">
+              <Link
+                to="/diagnostic"
+                className="bg-[var(--color-primary)] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2d4434] transition-all transform hover:scale-105 shadow-lg">
                 Meet Your Tutor
-              </button>
-              <button className="border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--color-primary)] hover:text-white transition-all">
+              </Link>
+              <Link
+                to="/diagnostic"
+                className="border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--color-primary)] hover:text-white transition-all">
                 Start Free Diagnostic
-              </button>
+              </Link>
             </div>
 
             {/* Floating Tags - Decorative */}
@@ -99,17 +105,19 @@ export function Hero() {
               </svg>
 
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Student smiling with books"
-                className="w-full h-full object-cover object-center mix-blend-overlay opacity-90" />
+                src={heroTutorInterface}
+                alt="High school student studying SAT prep on laptop with personalized tutor dashboard visible on screen"
+                className="w-full h-full object-cover object-center mix-blend-overlay opacity-90"
+              />
 
 
               <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[var(--color-primary)]/80 to-transparent"></div>
 
               <img
-                src="https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Student holding yellow folder"
-                className="absolute bottom-0 right-0 w-[90%] h-auto object-contain z-10" />
+                src={heroTutorInterface}
+                alt="Student with SAT tutor interface showing skill breakdown and practice recommendations"
+                className="absolute bottom-0 right-0 w-[90%] h-auto object-contain z-10"
+              />
 
             </div>
           </div>

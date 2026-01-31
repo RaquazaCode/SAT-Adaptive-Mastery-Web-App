@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Clock, ChevronLeft, ChevronRight, Flag } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Clock, ChevronLeft, ChevronRight, Flag, AlertTriangle } from 'lucide-react';
 
 interface Question {
   id: string;
@@ -13,6 +13,10 @@ interface ModuleViewProps {
   timeLimitMinutes: number;
   moduleNumber: 1 | 2;
   onComplete: (responses: Array<{ item_id: string; answer: string; time_spent_s: number }>) => void;
+  /** Optional: section for Desmos (show calculator link for Math) */
+  section?: 'RW' | 'Math';
+  /** Optional: map item_id -> correct_answer for routing-risk warning during Module 1 */
+  correctAnswerMap?: Record<string, string>;
 }
 
 export function ModuleView({
@@ -20,12 +24,33 @@ export function ModuleView({
   timeLimitMinutes,
   moduleNumber,
   onComplete,
+  section,
+  correctAnswerMap,
 }: ModuleViewProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [timeRemaining, setTimeRemaining] = useState(timeLimitMinutes * 60);
   const [startTime] = useState(Date.now());
   const [flagged, setFlagged] = useState<Set<string>>(new Set());
+  const submittedRef = useRef(false);
+  const selectedAnswersRef = useRef(selectedAnswers);
+  const startTimeRef = useRef(startTime);
+  selectedAnswersRef.current = selectedAnswers;
+  startTimeRef.current = startTime;
+
+  const handleSubmit = useCallback(() => {
+    if (submittedRef.current) return;
+    submittedRef.current = true;
+    const elapsed = Math.floor((Date.now() - startTimeRef.current) / 1000);
+    const perQuestion = questions.length > 0 ? Math.round(elapsed / questions.length) : 0;
+    const answers = selectedAnswersRef.current;
+    const responses = questions.map((q) => ({
+      item_id: q.id,
+      answer: answers[q.id] || '',
+      time_spent_s: perQuestion,
+    }));
+    onComplete(responses);
+  }, [questions, onComplete]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,16 +64,7 @@ export function ModuleView({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
-
-  const handleSubmit = () => {
-    const responses = questions.map((q) => ({
-      item_id: q.id,
-      answer: selectedAnswers[q.id] || '',
-      time_spent_s: Math.floor((Date.now() - startTime) / 1000 / questions.length),
-    }));
-    onComplete(responses);
-  };
+  }, [handleSubmit]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -58,13 +74,54 @@ export function ModuleView({
 
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
+  const allAnswered = questions.every((q) => selectedAnswers[q.id]);
+  const canSubmit = allAnswered || timeRemaining <= 0;
+  const timeBudgetPerQuestion = (timeLimitMinutes * 60) / questions.length;
+  const first10 = questions.slice(0, 10);
+  const first10Answered = first10.every((q) => selectedAnswers[q.id]);
+  let routingRiskMessage: string | null = null;
+  if (
+    moduleNumber === 1 &&
+    correctAnswerMap &&
+    first10Answered &&
+    first10.length === 10
+  ) {
+    const correctFirst10 = first10.filter(
+      (q) => selectedAnswers[q.id] === correctAnswerMap[q.id],
+    ).length;
+    const accuracy = correctFirst10 / 10;
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const avgTimePerQ = elapsed / 10;
+    const errorsFirst10 = 10 - correctFirst10;
+    if (accuracy < 0.6)
+      routingRiskMessage = 'Accuracy in the first 10 questions is below 60%. Focus on accuracy to improve your routing.';
+    else if (errorsFirst10 > 3)
+      routingRiskMessage = 'More than 3 errors in the first 10 questions may route you to an easier Module 2.';
+    else if (avgTimePerQ > 1.2 * timeBudgetPerQuestion)
+      routingRiskMessage = 'You are spending more than 1.2× the time budget per question. Pacing may affect your routing.';
+  }
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header with timer */}
+      {/* &lt; 5 minutes warning */}
+      {timeRemaining > 0 && timeRemaining <= 5 * 60 && (
+        <div className="sticky top-0 z-[60] bg-amber-100 border-b border-amber-300 px-4 py-2 text-center text-amber-800 font-semibold">
+          Less than 5 minutes remaining in this module.
+        </div>
+      )}
+
+      {/* Routing risk (Module 1 only) */}
+      {routingRiskMessage && (
+        <div className="sticky top-0 z-[59] bg-amber-50 border-b border-amber-200 px-4 py-2 flex items-center justify-center gap-2 text-amber-800 text-sm">
+          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+          <span>{routingRiskMessage}</span>
+        </div>
+      )}
+
+      {/* Header with timer and persistent Submit */}
       <div className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <div>
               <h2 className="text-lg font-bold text-[var(--color-text-dark)]">
                 Module {moduleNumber}
@@ -73,13 +130,19 @@ export function ModuleView({
                 Question {currentIndex + 1} of {questions.length}
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-2 bg-red-50 px-4 py-2 rounded-full">
                 <Clock className="w-5 h-5 text-red-600" />
                 <span className="font-bold text-red-600">
                   {formatTime(timeRemaining)}
                 </span>
               </div>
+              <button
+                onClick={handleSubmit}
+                disabled={!canSubmit}
+                className="px-4 py-2 rounded-full bg-[var(--color-accent-green)] text-[var(--color-primary)] font-bold text-sm hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed">
+                Submit Module
+              </button>
             </div>
           </div>
           <div className="mt-4">
@@ -92,6 +155,19 @@ export function ModuleView({
           </div>
         </div>
       </div>
+
+      {/* Desmos for Math */}
+      {section === 'Math' && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <a
+            href="https://www.desmos.com/calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:underline">
+            Open Desmos Graphing Calculator (new tab)
+          </a>
+        </div>
+      )}
 
       {/* Question Display */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

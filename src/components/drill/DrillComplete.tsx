@@ -24,7 +24,7 @@ export function DrillComplete({
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 text-center">
           <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-dark)] mb-4">
-            Drill Complete!
+            Nice Work—Your Tutor Updated Your Plan
           </h1>
 
           <div className="mb-12">

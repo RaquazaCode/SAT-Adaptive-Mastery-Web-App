@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { BookOpen, Calculator } from 'lucide-react';
 
-export function DiagnosticStart() {
+interface DiagnosticStartProps {
+  onStart?: (section: 'RW' | 'Math') => void;
+}
+
+export function DiagnosticStart({ onStart }: DiagnosticStartProps) {
   const [selectedSection, setSelectedSection] = useState<'RW' | 'Math' | null>(
     null,
   );
@@ -12,12 +16,12 @@ export function DiagnosticStart() {
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-dark)] mb-6">
-              Your Tutor Wants to Assess You
+              Know Exactly Where You Stand—In Under an Hour
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Start with a free diagnostic test. Your tutor will watch how you perform, 
-              identify your current score, and map out exactly which skills need work. 
-              No judgment, just understanding.
+              Take a free diagnostic and get a clear picture of your score and weak spots. 
+              Your tutor uses your results to build a practice plan that targets what you need most. 
+              No judgment, just a roadmap.
             </p>
           </div>
 
@@ -62,11 +66,13 @@ export function DiagnosticStart() {
 
           {selectedSection && (
             <div className="text-center">
-              <button className="bg-[var(--color-primary)] text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-[#2d4434] transition-all transform hover:scale-105 shadow-lg">
-                Start Diagnostic Test
+              <button
+                onClick={() => onStart?.(selectedSection)}
+                className="bg-[var(--color-primary)] text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-[#2d4434] transition-all transform hover:scale-105 shadow-lg">
+                Start My Diagnostic
               </button>
               <p className="text-sm text-gray-500 mt-4">
-                Your tutor will guide you through the test
+                Timed like the real SAT—your tutor tracks every answer
               </p>
             </div>
           )}
