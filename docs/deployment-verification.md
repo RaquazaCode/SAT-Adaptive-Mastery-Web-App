@@ -1,5 +1,22 @@
 # Deployment Verification Checklist
 
+## If the live site shows a blank page (Vercel)
+
+The app is a Vite SPA; Vercel must serve the **built** output from `dist/`, not the repo root. If you see "Configuration Settings in the current Production deployment differ from your current Project Settings" in Vercel:
+
+1. **Use only `vercel.json` (no UI overrides)**  
+   In Vercel: **Settings → General → Build & Development**. Under **Framework Settings**, in **Production Overrides**:
+   - Turn **off** the override for **Build Command** (or clear the field).
+   - Turn **off** the override for **Output Directory** (or clear the field).  
+   Then click **Save**.
+
+2. **Redeploy from the latest commit**  
+   **Deployments** → open the **⋯** on the latest deployment → **Redeploy**.  
+   Optionally enable **Redeploy without using the build cache**, then confirm.
+
+3. **Confirm**  
+   After the new deployment is live, open the production URL. The site should load; if not, check the deployment’s **Build Logs** to ensure `npm run build` ran and **Output Directory** is `dist`.
+
 ## Pre-Deployment
 
 - [x] Build succeeds: `npm run build`
