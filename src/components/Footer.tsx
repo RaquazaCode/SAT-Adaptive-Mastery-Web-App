@@ -6,8 +6,10 @@ import {
   Linkedin,
   Mail,
   Phone,
-  MapPin } from
-'lucide-react';
+  MapPin,
+} from 'lucide-react';
+import { Logo } from './Logo';
+
 export function Footer() {
   return (
     <footer className="bg-white pt-20 pb-10 border-t border-gray-100">
@@ -16,37 +18,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-
-                  <path
-                    d="M12 2L2 7L12 12L22 7L12 2Z"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round" />
-
-                  <path
-                    d="M2 17L12 22L22 17"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round" />
-
-                  <path
-                    d="M2 12L12 17L22 12"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round" />
-
-                </svg>
-              </div>
+              <Logo className="w-8 h-8" iconClassName="text-xl" />
               <span className="font-serif text-2xl font-bold text-[var(--color-primary)]">
                 SAT Mastery
               </span>
@@ -162,7 +134,7 @@ export function Footer() {
               Newsletter
             </h4>
             <p className="text-gray-600 mb-4">
-              Subscribe to get the latest news and updates.
+              Get Daily SAT Prep Questions for FREE ! (answers + explanations included) 📲
             </p>
             <form className="space-y-3">
               <input
